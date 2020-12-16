@@ -1,0 +1,95 @@
+一、安装 cmd
+npm install --global vue-cli
+vue init webpack my-project
+cd my-project
+npm install
+npm run dev
+(慢的话用cnpm)
+
+(
+  搭建：安装cmd
+  新建页面: pages/demo1/index.js
+  (新建控件：components/countdown.vue)
+  设置路由: router/index.js -> http://localhost:8080/#/demo1
+)
+
+二、生命周期 (按照被执行的顺序)
+beforeCreate: 组件刚刚被创建
+creatd: 组件创建完成
+beforeMount: 挂载之前
+beforeDestory: 组件销毁前调用
+destoryed: 组件销毁后调用
+
+三、选项数据
+1.data: 定义变量
+2.computed: 计算属性
+3.methods: 事件函数
+
+四、模板语法
+1.data
+2.模板中直接嵌入js代码
+3.指令 (v-html, v-bind, v-on)
+4.计算属性
+5.过滤器
+
+五、计算属性
+<div> {{ returndMessage }} </div>
+computed: {
+  returndMessage() {
+    return this.msg.split('').reverse().join('');
+  }
+}
+
+六、class与style绑定
+
+七、条件渲染 (v-if)
+
+八、列表渲染 (v-for)
+
+九、事件处理器
+
+十、自定义组件
+
+十一、Vue中的Dom操作
+mounted: vue是虚拟dom,在mounted里面才能变成真实dom
+
+十二、过渡效果
+
+十三、路由vue-router
+1.npm install引入vue-router包
+  (如果之前没有vue-router的话,cmd: npm install --save vue-router，但我试过没用)
+2.页面之间的跳转
+
+十四、状态管理vuex
+1.npm install引入vuex包:
+  > cmd: cnpm install vuex --save
+  > 新建:
+    在src/main.js中:
+      import store from './store'
+      new Vue({
+        el: '#app',
+        router,
+        store,
+        components: { App },
+        template: '<App/>'
+      })
+    在src新建store/index.js
+2.全局状态管理，所有页面共享数据
+3.设置数据: this.$store.dispatch('increament',100000);
+4.获取数据: this.$store.state.num;
+
+十五、Slot插槽 (常用于组件)
+
+十六、vue-resource请求
+1.npm install引入vue-resource包
+  > cnpm install vue-resource --save
+2.this.$http.get('/someUrl');
+3.this.$http.get('someUrl',{foo:'bar'});
+
+十七、组件库element UI
+1.cmd
+  cnpm install --save core-js@^3  /  npm i core-js -g
+  cnpm i element-ui -S
+  (都没用，最后把node_modules目录全部删除，然后重新npm install)
+  npm config set registry http://registry.npm.taobao.org
+  cnpm install node-sass --save
